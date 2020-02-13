@@ -20,8 +20,11 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.s(a|c)ss$/,
+        use: ['style-loader', {
+          loader: 'css-loader',
+          options: { modules: true }
+        }, 'sass-loader'],
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
