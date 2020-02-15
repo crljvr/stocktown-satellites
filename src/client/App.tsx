@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import './app.scss';
 import ReactImage from './react.png';
 
-export default class App extends Component {
-  state = { username: null };
+interface IProps {
+  //
+}
+
+interface IState {
+  username: string;
+}
+
+export default class App extends Component<IProps, IState> {
+  constructor(props: IProps) {
+    super(props)
+
+    this.state = { username: "" };
+  }
 
   componentDidMount() {
     fetch('/api/getUsername')
