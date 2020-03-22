@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Feed from "./components/Feed";
 import { fetchUser } from "./networking"
+import NavigationBar from './components/NavigationBar';
+import Games from './components/Games';
+import Hero from './components/Hero';
 
 const App: React.SFC = () => {
   const [posts, getPosts] = useState([])
@@ -18,7 +21,9 @@ const App: React.SFC = () => {
 
   return (
     <div>
-      <Feed medias={medias} />
+      <NavigationBar />
+      <Games />
+      <Hero />
     </div>
   )
 }

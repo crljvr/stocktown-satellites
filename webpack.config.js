@@ -29,6 +29,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.ts', '.tsx'],
+    alias: {
+      components: path.resolve(__dirname, 'src/client/components')
+    }
   },
   devServer: {
     port: 3000,

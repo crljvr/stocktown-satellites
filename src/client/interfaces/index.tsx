@@ -1,3 +1,5 @@
+import { Timestamp } from '@firebase/firestore-types'
+
 export interface ICommentOwner {
   id: string
   profile_pic_url: string
@@ -16,4 +18,13 @@ export interface IPost {
   shortcode: string
   displayUrl: string
   comments: Array<IComment>
+}
+
+export interface IGame {
+  opponent: string
+  home: boolean
+  win: boolean
+  scoreTeam: number
+  scoreOpponent: number
+  date: Timestamp
 }
