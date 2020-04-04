@@ -1,8 +1,9 @@
 import React from 'react';
 import { firestore } from 'firebase'
+import CSS from 'csstype';
 import { IGame } from 'client/interfaces';
 import Game from '../Game';
-import './index.scss';
+import stockTownColors from '../../assets/colors';
 
 const Games = () => {
 
@@ -33,15 +34,17 @@ const Games = () => {
     }
   ]
 
+  const style: CSS.Properties = {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    background: stockTownColors.DARK_GREY
+  }
+
   return (
-    <div className="container-fluid">
-      <div className="row">
-        {games.map((game: IGame, index: number) => (
-          <div className="col">
-            <Game key={index} game={game} />
-          </div>
-        ))}
-      </div>
+    <div style={style} >
+      {games.map((game: IGame, index: number) => (
+        <Game key={index} {...game} />
+      ))}
     </div>
   )
 };
