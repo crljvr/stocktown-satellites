@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import CSS from 'cssType';
 import NavigationBar from '../NavigationBar';
 import stockTownColors from '../../assets/colors';
@@ -7,13 +7,18 @@ import FeatureNewsHero from '../FeatureNewsHero';
 import { IFeatureNews } from '../../interfaces';
 import Feed from '../Feed';
 import { fetchUser } from '../../networking';
+import UserActions from '../../actions/User';
+import { UserStore } from '../../store/User';
 
 const App: React.SFC = () => {
 
+  const { dispatch } = useContext(UserStore);
+
   const fetchData = () => {
-    fetchUser(data => {
-      console.log('done')
-      console.log(data)
+    fetchUser(({ user, medias }) => {
+      UserActions.setUser(user, medias, dispatch, () => {
+        console.log("Set user")
+      })
     })
   }
 

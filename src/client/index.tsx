@@ -7,5 +7,7 @@ import App from './components/App';
 import './index.scss';
 
 ReactDOM.render(
-  <App />
+  <UserStoreProvider>
+    <App />
+  </UserStoreProvider>
   , document.getElementById('root'));
