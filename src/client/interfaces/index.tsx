@@ -28,3 +28,15 @@ export interface IGame {
   scoreOpponent: number
   date: Timestamp
 }
+
+export interface INewsItem {
+  title: string,
+  description: string,
+  imageUrl?: string
+}
+
+export interface IFeatureNews {
+  title: string;
+  description: string;
+  imageUrl: string;
+}

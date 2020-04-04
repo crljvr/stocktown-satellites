@@ -1,88 +1,73 @@
-import React, { useState, useEffect } from "react";
-import Post from "../Post";
-import { IPost, IComment } from "../../interfaces";
-import { fetchPost } from "../../networking"
-import "./index.scss"
+import React from 'react';
+import CSS from 'cssType';
+import { H2, H3 } from '../Title';
+import Paragraph from '../Paragraph';
+import { INewsItem } from '../../interfaces';
+import InstaFeed from '../InstaFeed';
 
-interface IProps {
-  medias: Array<any>
-}
+const Feed: React.FC = () => {
 
-const Feed: React.SFC<IProps> = ({ medias }) => {
+  const style: CSS.Properties = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '0 100px',
+  }
 
-  const [posts, setPosts] = useState<Array<IPost>>([])
-
-  useEffect(() => {
-    if (medias && !Object.keys(posts).length) {
-      medias.forEach(post => {
-        fetchPost(post.shortcode, (result: any) => {
-
-          const comments: Array<IComment> = result.edge_media_to_parent_comment.edges.map((item: any) => {
-            const { id, text, created_at, owner } = item.node
-            const comment: IComment = {
-              id,
-              text,
-              createdAt: created_at,
-              owner
-            }
-            return comment
-          })
-
-          const newPost = {
-            id: result.id,
-            shortcode: result.shortcode,
-            displayUrl: result.display_resources[0].src,
-            comments: comments
-          }
-          setPosts([...posts, newPost])
-        })
-      })
-    }
-  })
-
-  // "url(" + posts[0].displayUrl + ")"
   return (
-    <div>
-      <div className="container-fluid">
-        <div className="row">
-          {posts.length && (
-            <div className="app-hero" style={
-              {
-                backgroundImage: `url(${posts[0].displayUrl})`
-              }
-            }>
-              <span className="layer" />
-              <div className="container">
-                <h2>Titel på Bilden</h2>
-                <p>av: Calle</p>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-      <div className="container">
-        <div className="row feed">
-          <h3>Feed</h3>
-        </div>
-        <div className="row">
-          {posts.map(post => (
-            <Post key={post.id} {...post} />
-          ))}
-        </div>
-      </div>
-    </div >
+    <div style={style}>
+      <NewsFeed />
+      <InstaFeed />
+    </div>
   )
-}
+};
 
 export default Feed;
 
-// interface HeroProps {
-//   posts: Array<IPost>
-// }
+const NewsFeed: React.FC = () => {
 
-// const Hero: React.SFC<HeroProps> = ({ posts }) => (
-//   <>
-//     <img src={""} />
-//     {console.log(posts)}
-//   </>
-// )
+  const news: Array<INewsItem> = [
+    {
+      title: 'Nyhet 1',
+      description: 'Lite text',
+      imageUrl: 'https://images.unsplash.com/photo-1499754162586-08f451261482?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80'
+    },
+    {
+      title: 'Nyhet 2',
+      description: 'Lite mer text',
+      imageUrl: 'https://images.unsplash.com/photo-1466554735730-6281a8638806?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80'
+    },
+    {
+      title: 'Nyhet 3',
+      description: 'JAJA , lite mer',
+      imageUrl: 'https://images.unsplash.com/photo-1548311344-5324fa0dbad6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80'
+    }
+  ]
+
+  return (
+    <div style={{ width: '100%' }}>
+      {news.map((item: INewsItem, index: number) => (
+        <NewsItem key={index} {...item} />
+      ))}
+    </div>
+  )
+}
+
+interface NewsItemProps {
+  title: string,
+  description: string,
+  imageUrl?: string
+}
+
+const NewsItem: React.FC<NewsItemProps> = ({ title, description, imageUrl }) => {
+
+  const style: CSS.Properties = {
+    backgroundImage: imageUrl && `url(${imageUrl})`
+  }
+
+  return (
+    <div style={style}>
+      <H3>{title}</H3>
+      <Paragraph>{description}</Paragraph>
+    </div>
+  )
+}

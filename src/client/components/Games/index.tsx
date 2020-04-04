@@ -36,8 +36,10 @@ const Games = () => {
 
   const style: CSS.Properties = {
     display: 'flex',
-    justifyContent: 'space-evenly',
-    background: stockTownColors.DARK_GREY
+    justifyContent: 'space-around',
+    background: stockTownColors.DARK_GREY,
+    margin: '0 100px',
+    padding: '20px'
   }
 
   return (

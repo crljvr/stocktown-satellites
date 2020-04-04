@@ -2,6 +2,7 @@ import React from 'react';
 import CSS from 'cssType';
 import { H2, H3 } from '../Title';
 import Paragraph from '../Paragraph';
+import stockTownColors from '../../assets/colors';
 
 // export interface IGame {
 //   opponent: string
@@ -24,15 +25,30 @@ const Game: React.SFC<IProps> = ({ home, opponent, scoreTeam, scoreOpponent }) =
   const gameHeaderStyle: CSS.Properties = {
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    padding: '10px',
+    background: stockTownColors.WHITE
   }
 
   return (
     <div>
       <div style={gameHeaderStyle}>
-        <TeamResult teamName="StocktownSatellites" score={scoreTeam} />
-        <Paragraph>vs.</Paragraph>
-        <TeamResult teamName={opponent} score={scoreOpponent} />
+        {home ? (
+          <>
+            <TeamResult teamName="Stocktown Satellites" score={scoreTeam} homeTeam />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <Paragraph color={stockTownColors.DEEP_GREEN}>vs.</Paragraph>
+            </div>
+            <TeamResult teamName={opponent} score={scoreOpponent} />
+          </>
+        ) : (
+            <>
+              <TeamResult teamName={opponent} score={scoreOpponent} homeTeam />
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Paragraph color={stockTownColors.DEEP_GREEN}>vs.</Paragraph>
+              </div>
+              <TeamResult teamName="Stocktown Satellites" score={scoreTeam} />
+            </>
+          )}
       </div>
     </div>
   )
@@ -41,19 +57,24 @@ const Game: React.SFC<IProps> = ({ home, opponent, scoreTeam, scoreOpponent }) =
 export default Game;
 
 interface TeamProps {
-  teamName: string
-  score: number
+  teamName: string;
+  score: number;
+  homeTeam?: boolean;
 }
 
-const TeamResult: React.FC<TeamProps> = ({ teamName, score }) => {
-  const style = {
-
+const TeamResult: React.FC<TeamProps> = ({ teamName, score, homeTeam }) => {
+  const style: CSS.Properties = {
+    display: 'flex',
+    alignItems: homeTeam ? 'flex-start' : 'flex-end',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    width: '33%'
   }
 
   return (
-    <div>
-      <H3>{teamName}</H3>
-      <H2>{score}</H2>
+    <div style={style}>
+      <H3 color={stockTownColors.DEEP_GREEN}>{teamName}</H3>
+      <H2 color={stockTownColors.DEEP_GREEN}>{score}</H2>
     </div>
   )
 }

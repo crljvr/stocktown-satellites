@@ -1,21 +1,21 @@
 import React, { Children } from "react";
 import CSS from 'cssType';
-import { H3 } from "../Title";
+import { H3, TitleSize } from "../Title";
 import stockTownColors from "../../assets/colors";
 
 const NavigationBar = () => {
 
   const navigationBarStyle: CSS.Properties = {
     display: 'flex',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
     padding: '0 50px',
+    margin: '0 100px',
     background: stockTownColors.BLACK
   }
 
   const navigationListStyle: CSS.Properties = {
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'space-around',
     width: '100%'
   }
 
@@ -41,7 +41,7 @@ const NavigationItem: React.FC = ({ children }) => {
 
   return (
     <div style={style}>
-      <H3>{children}</H3>
+      <H3 size={TitleSize.SMALL}>{children}</H3>
     </div>
   )
 }
