@@ -1,5 +1,19 @@
 import { Timestamp } from '@firebase/firestore-types'
 
+export interface IAction {
+  type: string;
+  payload: any;
+}
+export interface IUser {
+  id: string;
+  name: string;
+  username: string;
+  biography: string;
+  pictureUrl: string;
+  followers: number;
+  follows: number;
+  medias: Array<any>;
+}
 export interface ICommentOwner {
   id: string
   profile_pic_url: string
@@ -16,6 +30,7 @@ export interface IComment {
 export interface IPost {
   id: string
   shortcode: string
+  text: string,
   displayUrl: string
   comments: Array<IComment>
 }

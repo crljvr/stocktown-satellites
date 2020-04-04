@@ -12,6 +12,7 @@ const App: React.SFC = () => {
 
   const fetchData = () => {
     fetchUser(data => {
+      console.log('done')
       console.log(data)
     })
   }

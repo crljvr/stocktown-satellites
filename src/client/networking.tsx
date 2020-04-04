@@ -7,11 +7,14 @@ const root = 'http://localhost:3000/api'
 export const fetchUser = (callback: (data: any) => void) => {
   const path = `${root}/getUser`
 
+  console.log(path)
+
   fetch(path)
     .then(res => res.json()
       .then(data => {
         callback(data)
       }))
+    .catch(error => console.log(error))
 }
 
 /* ================================
