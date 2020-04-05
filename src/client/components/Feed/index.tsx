@@ -1,9 +1,10 @@
 import React from 'react';
 import CSS from 'cssType';
-import { H2, H3 } from '../Title';
-import Paragraph from '../Paragraph';
+import { H2, H3, TitleSize } from '../Title';
+import Paragraph, { ParagraphSize } from '../Paragraph';
 import { INewsItem } from '../../interfaces';
 import InstaFeed from '../InstaFeed';
+import stockTownColors from '../../assets/colors';
 
 const Feed: React.FC = () => {
 
@@ -61,13 +62,33 @@ interface NewsItemProps {
 const NewsItem: React.FC<NewsItemProps> = ({ title, description, imageUrl }) => {
 
   const style: CSS.Properties = {
-    backgroundImage: imageUrl && `url(${imageUrl})`
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundImage: `url(${imageUrl})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover'
+  }
+
+  const newsWindowStyle: CSS.Properties = {
+    height: '100%',
+    width: '50%',
+    background: stockTownColors.BLACK,
+    marginLeft: 'auto',
+    padding: '10px',
+    overflow: 'scroll'
   }
 
   return (
-    <div style={style}>
-      <H3>{title}</H3>
-      <Paragraph>{description}</Paragraph>
+    <div style={{ position: 'relative', height: '400px', margin: '0 0 20px 0' }}>
+      <div style={style}>
+        <div style={newsWindowStyle}>
+          <H3 size={TitleSize.MEDIUM}>{title}</H3>
+          <Paragraph size={ParagraphSize.X_SMALL}>{description}</Paragraph>
+        </div>
+      </div>
     </div>
   )
 }

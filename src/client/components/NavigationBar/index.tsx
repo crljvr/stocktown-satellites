@@ -23,6 +23,7 @@ const NavigationBar = () => {
     <div style={navigationBarStyle}>
       <TeamLogo />
       <div style={navigationListStyle}>
+        <NavigationItem>Nyheter</NavigationItem>
         <NavigationItem>Matcher</NavigationItem>
         <NavigationItem>Laget</NavigationItem>
         <NavigationItem>Kontakt</NavigationItem>

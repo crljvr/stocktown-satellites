@@ -35,8 +35,12 @@ const InstaFeedPost: React.FC<IProps> = ({
   }
 
   const postContentImage: CSS.Properties = {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
     backgroundImage: `url(${display_url})`,
-    height: '300px',
     backgroundSize: 'cover',
     backgroundPosition: 'center'
   }
@@ -50,7 +54,9 @@ const InstaFeedPost: React.FC<IProps> = ({
           <Paragraph size={ParagraphSize.X_SMALL} opacity={ParagraphOpacity.MEDIUM}>{comment_count} kommentarer</Paragraph>
         </div>
       </div>
-      <div style={postContentImage} />
+      <div style={{ position: 'relative', height: '300px' }}>
+        <div style={postContentImage} />
+      </div>
       <div style={{ maxHeight: '300px', overflow: 'scroll' }}>
         {comments.map((comment: any, index: number) => (
           <div key={index} style={{ display: 'flex', padding: '10px' }}>
