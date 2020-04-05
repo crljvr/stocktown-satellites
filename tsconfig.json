@@ -18,7 +18,8 @@
     "esModuleInterop": true
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "firebaseConfig.js"
   ],
   "exclude": [
     "node_modules"

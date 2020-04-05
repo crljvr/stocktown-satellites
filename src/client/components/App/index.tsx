@@ -6,7 +6,7 @@ import Games from '../Games';
 import FeatureNewsHero from '../FeatureNewsHero';
 import { IFeatureNews } from '../../interfaces';
 import Feed from '../Feed';
-import { fetchUser } from '../../networking';
+import { fetchUser } from '../../networking/instagram';
 import UserActions from '../../actions/User';
 import { UserStore } from '../../store/User';
 

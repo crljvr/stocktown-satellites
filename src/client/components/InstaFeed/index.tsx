@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import CSS from 'cssType';
-import { UserStore } from '../../store/User';
-import stockTownColors from '../../assets/colors';
+
 import InstaFeedHeading from './InstaFeedHeading';
+import stockTownColors from '../../assets/colors';
+import { UserStore } from '../../store/User';
 import InstaFeedPost from './InstaFeedPost';
 
 const InstaFeed: React.FC = () => {

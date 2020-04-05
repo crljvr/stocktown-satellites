@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CSS from 'cssType';
-import { fetchPost } from '../../networking';
+import { fetchPost } from '../../networking/instagram';
 import stockTownColors from '../../assets/colors';
 import { H2, H3, TitleSize } from '../Title';
 import Paragraph, { ParagraphSize, ParagraphOpacity } from '../Paragraph';
