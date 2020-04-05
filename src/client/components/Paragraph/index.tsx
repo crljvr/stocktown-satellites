@@ -3,6 +3,7 @@ import CSS from 'cssType';
 import stockTownColors from '../../assets/colors';
 
 export enum ParagraphSize {
+  X_SMALL = '14px',
   SMALL = '20px',
   MEDIUM = '35px',
   LARGE = '50px'
