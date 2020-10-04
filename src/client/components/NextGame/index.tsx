@@ -1,7 +1,7 @@
 import React from 'react';
 import { IGame } from 'client/interfaces';
 import './index.scss';
-import { H2 } from '../Title';
+import { H2 } from '../ui_components/Title';
 
 interface IProps {
   nextGame: IGame

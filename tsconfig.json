@@ -13,7 +13,7 @@
     "baseUrl": "./src",
     "typeRoots": [
       "node_modules/@types",
-      "src/typings"
+      "src/typings",
     ],
     "esModuleInterop": true
   },

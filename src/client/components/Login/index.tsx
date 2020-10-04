@@ -5,7 +5,7 @@ import FirebaseMethods from '../../networking/firebase';
 import stockTownColors from '../../assets/colors';
 import SignInActions from '../../actions/SignIn';
 import { SignInStore } from '../../store/SignIn';
-import { H1 } from '../Title';
+import { H1 } from '../ui_components/Title';
 
 const Login: React.FC = () => {
 

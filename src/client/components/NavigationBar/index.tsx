@@ -1,56 +1,43 @@
-import React, { Children } from "react";
-import CSS from 'cssType';
-import { H3, TitleSize } from "../Title";
 import stockTownColors from "../../assets/colors";
+import React, { FunctionComponent } from "react";
+import StocktownLogo from "../../assets/stocktown_logo.svg";
+import { A, H3 } from "../ui_components/Title";
+import "./index.scss";
 
-const NavigationBar = () => {
-
-  const navigationBarStyle: CSS.Properties = {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '0 50px',
-    margin: '0 100px',
-    background: stockTownColors.BLACK
-  }
-
-  const navigationListStyle: CSS.Properties = {
-    display: 'flex',
-    justifyContent: 'space-around',
-    width: '100%'
-  }
-
-  return (
-    <div style={navigationBarStyle}>
-      <TeamLogo />
-      <div style={navigationListStyle}>
-        <NavigationItem>Nyheter</NavigationItem>
-        <NavigationItem>Matcher</NavigationItem>
-        <NavigationItem>Laget</NavigationItem>
-        <NavigationItem>Kontakt</NavigationItem>
-      </div>
-    </div>
-  )
-}
+const NavigationBar = () => (
+  <div className="navigation-bar">
+    <TeamLogo />
+    <NavigationList>
+      <NavigationItem>Nyheter</NavigationItem>
+      <NavigationItem>Matcher</NavigationItem>
+      <NavigationItem>Laget</NavigationItem>
+      <NavigationItem>Kontakt</NavigationItem>
+    </NavigationList>
+  </div>
+);
 
 export default NavigationBar;
 
-const NavigationItem: React.FC = ({ children }) => {
+const NavigationItem: FunctionComponent = ({ children }) => (
+  <div className="navigation-item">
+    <li>
+      <H3 color={stockTownColors.DEEP_GREEN}>
+        <A onClick={() => console.log('aaa')}>
+          {children}
+        </A>
+      </H3>
+    </li>
+  </div>
+);
 
-  const style: CSS.Properties = {
-    margin: '0 20px'
-  }
+const NavigationList: FunctionComponent = ({ children }) => (
+  <ul className="navigation-list">
+    {children}
+  </ul>
+);
 
-  return (
-    <div style={style}>
-      <H3 size={TitleSize.SMALL}>{children}</H3>
-    </div>
-  )
-}
-
-const TeamLogo: React.FC = () => {
-  return (
-    <div>
-      <img src='https://via.placeholder.com/150' />
-    </div>
-  )
-};
+const TeamLogo: FunctionComponent = () => (
+  <div className="team-logo">
+    <img src={StocktownLogo} />
+  </div>
+);

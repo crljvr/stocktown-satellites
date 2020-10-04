@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, FunctionComponent } from 'react';
 import CSS from 'cssType';
 import NavigationBar from '../NavigationBar';
 import stockTownColors from '../../assets/colors';
@@ -10,7 +10,7 @@ import { fetchUser } from '../../networking/instagram';
 import UserActions from '../../actions/User';
 import { UserStore } from '../../store/User';
 
-const App: React.SFC = () => {
+const App: FunctionComponent = () => {
 
   const { dispatch } = useContext(UserStore);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import CSS from 'cssType';
-import { H2, H3, TitleSize } from '../Title';
+import { H2, H3, TitleSize } from '../ui_components/Title';
 import Paragraph, { ParagraphSize } from '../Paragraph';
 import { INewsItem } from '../../interfaces';
 import InstaFeed from '../InstaFeed';

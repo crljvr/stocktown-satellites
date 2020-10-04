@@ -1,6 +1,6 @@
 import React from 'react';
 import CSS from 'cssType';
-import { H2, H3, TitleSize, TitleOpacity } from '../Title';
+import { H2, H3, TitleSize, TitleOpacity } from '../ui_components/Title';
 
 interface IProps {
   name: string;

@@ -1,0 +1,29 @@
+.navigation-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffd162;
+  padding: 0 6em;
+  margin: 0 100px;
+}
+
+.navigation-list {
+  display: flex;
+  justify-content: center;
+}
+
+.navigation-item {
+  padding: 0 1em;
+  list-style-type: none;
+}
+
+.team-logo {
+  position: absolute;
+  top: 8px;
+  height: 90px;
+
+  > img {
+    width: auto;
+    height: 100%;
+  }
+}

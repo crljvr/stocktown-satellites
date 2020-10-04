@@ -17,7 +17,7 @@ const Root: React.FC = () => {
 ReactDOM.render(
   <SignInStoreProvider>
     <UserStoreProvider>
-      <Root />
+      <App />
     </UserStoreProvider>
   </SignInStoreProvider>
   , document.getElementById('root')

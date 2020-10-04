@@ -1,0 +1,14 @@
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: #fff;
+}
+
+.team-result {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 33%;
+}

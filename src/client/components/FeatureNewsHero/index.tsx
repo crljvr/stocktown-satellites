@@ -1,6 +1,6 @@
 import React from 'react';
 import CSS from 'cssType'
-import { H2, H3, H4, TitleSize } from '../Title';
+import { H2, H3, H4, TitleSize } from '../ui_components/Title';
 import stockTownColors from '../../assets/colors';
 import Paragraph, { ParagraphSize, ParagraphOpacity } from '../Paragraph';
 

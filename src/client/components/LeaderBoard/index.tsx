@@ -1,5 +1,5 @@
 import React from 'react';
-import { H3 } from '../Title';
+import { H3 } from '../ui_components/Title';
 import './index.tsx';
 
 const LeaderBoard = () => {

@@ -1,5 +1,5 @@
 const express = require('express');
-const ig = require('instagram-scraping');
+const ig = require('instagram-scraping')
 
 const app = express();
 

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import CSS from 'csstype';
-import stockTownColors from '../../assets/colors';
+import stockTownColors from '../../../assets/colors';
+import { IPost } from 'client/interfaces';
 
 export enum TitleSize {
   SMALL = '14px',
@@ -19,6 +20,10 @@ interface IProps {
   size?: TitleSize
   color?: stockTownColors
   opacity?: TitleOpacity
+}
+
+interface AProps extends IProps {
+  onClick: () => void;
 }
 
 export const H1: React.FC<IProps> = ({ children, size = TitleSize.MEDIUM, color = stockTownColors.SATELLITE_YELLOW, opacity = TitleOpacity.FULL }) => {
@@ -69,7 +74,7 @@ export const H3: React.SFC<IProps> = ({ children, size = TitleSize.SMALL, color 
   )
 }
 
-export const H4: React.SFC<IProps> = ({ children, size = TitleSize.SMALL, color = stockTownColors.SATELLITE_YELLOW, opacity = TitleOpacity.FULL }) => {
+export const H4: FunctionComponent<IProps> = ({ children, size = TitleSize.SMALL, color = stockTownColors.SATELLITE_YELLOW, opacity = TitleOpacity.FULL }) => {
   const fontStyle: CSS.Properties = {
     fontFamily: 'PT Sans, sans-serif',
     textTransform: 'uppercase',
@@ -81,6 +86,23 @@ export const H4: React.SFC<IProps> = ({ children, size = TitleSize.SMALL, color 
   return (
     <div style={fontStyle}>
       <h4>{children}</h4>
+    </div>
+  )
+}
+
+export const A: FunctionComponent<AProps> = ({
+  children,
+  onClick,
+}) => {
+  const fontStyle: CSS.Properties = {
+    color: 'inherit',
+    textDecoration: 'inherit',
+    cursor: 'pointer'
+  }
+
+  return (
+    <div style={fontStyle}>
+      <a onClick={onClick}>{children}</a>
     </div>
   )
 }
