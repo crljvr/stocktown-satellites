@@ -1,10 +1,10 @@
-import stockTownColors from "../../assets/colors";
 import React, { FunctionComponent } from "react";
-import StocktownLogo from "../../assets/stocktown_logo.svg";
-import { A, H3 } from "../ui_components/Title";
+import NavigationItem from "./NavigationItem";
+import NavigationList from "./NavigationList";
+import TeamLogo from "./TeamLogo";
 import "./index.scss";
 
-const NavigationBar = () => (
+const NavigationBar: FunctionComponent = () => (
   <div className="navigation-bar">
     <TeamLogo />
     <NavigationList>
@@ -17,27 +17,3 @@ const NavigationBar = () => (
 );
 
 export default NavigationBar;
-
-const NavigationItem: FunctionComponent = ({ children }) => (
-  <div className="navigation-item">
-    <li>
-      <H3 color={stockTownColors.DEEP_GREEN}>
-        <A onClick={() => console.log('aaa')}>
-          {children}
-        </A>
-      </H3>
-    </li>
-  </div>
-);
-
-const NavigationList: FunctionComponent = ({ children }) => (
-  <ul className="navigation-list">
-    {children}
-  </ul>
-);
-
-const TeamLogo: FunctionComponent = () => (
-  <div className="team-logo">
-    <img src={StocktownLogo} />
-  </div>
-);
